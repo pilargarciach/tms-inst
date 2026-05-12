@@ -28,26 +28,21 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-m
 /* HEADER */
 .header{background:var(--navy);position:sticky;top:0;z-index:200;}
 .header-inner{max-width:900px;margin:0 auto;padding:1rem 1.5rem;display:flex;align-items:center;gap:1.25rem;}
-.logo-wrap{
-  width:68px;height:68px;flex-shrink:0;border-radius:50%;
-  border:2.5px solid var(--gold);
-  background:rgba(255,255,255,0.12);
-  display:flex;align-items:center;justify-content:center;overflow:hidden;
-}
-.logo-wrap img{width:60px;height:60px;object-fit:contain;filter:brightness(1.4) contrast(1.1) saturate(1.2);}
-.header-text h1{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--gold);line-height:1.2;}
-.header-text p{font-size:0.88rem;color:var(--sky);margin-top:3px;font-weight:300;letter-spacing:0.02em;}
+.logo-wrap{width:72px;height:72px;flex-shrink:0;border-radius:50%;border:2.5px solid var(--gold);background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.logo-wrap img{width:64px;height:64px;object-fit:contain;filter:brightness(1.4) contrast(1.1) saturate(1.2);}
+.header-text h1{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--gold);line-height:1.2;}
+.header-text p{font-size:0.92rem;color:var(--sky);margin-top:4px;font-weight:300;letter-spacing:0.02em;}
 .header-stripe{height:3px;background:linear-gradient(90deg,var(--blue-light),var(--gold),var(--sky));}
 
 /* STEPPER */
-.stepper-wrap{background:var(--navy2);padding:0.55rem 1.5rem;overflow-x:auto;}
+.stepper-wrap{background:var(--navy2);padding:0.6rem 1.5rem;overflow-x:auto;}
 .stepper{max-width:900px;margin:0 auto;display:flex;align-items:center;}
 .step-item{display:flex;align-items:center;gap:6px;padding:4px 10px;border-radius:20px;white-space:nowrap;}
 .step-item.active{background:rgba(255,255,255,0.1);}
-.step-num{width:22px;height:22px;border-radius:50%;font-size:0.64rem;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.15);transition:all .3s;}
+.step-num{width:24px;height:24px;border-radius:50%;font-size:0.7rem;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.15);transition:all .3s;}
 .step-item.done .step-num{background:var(--blue-mid);color:#fff;border-color:var(--blue-mid);}
 .step-item.active .step-num{background:var(--gold);color:var(--navy);border-color:var(--gold);}
-.step-label{font-size:0.67rem;color:rgba(255,255,255,0.32);letter-spacing:0.04em;transition:color .2s;}
+.step-label{font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.03em;transition:color .2s;}
 .step-item.done .step-label{color:var(--sky);}
 .step-item.active .step-label{color:var(--gold);font-weight:500;}
 .step-conn{width:20px;height:1px;background:rgba(255,255,255,0.1);flex-shrink:0;}
@@ -61,40 +56,40 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-m
 
 /* INTRO */
 .intro-card{background:var(--navy);border-radius:12px;padding:1.4rem 1.65rem;margin-bottom:1.5rem;border-left:4px solid var(--gold);}
-.intro-card h2{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--gold);margin-bottom:6px;}
-.intro-card p{font-size:0.79rem;color:rgba(255,255,255,0.68);line-height:1.65;}
-.cite-block{background:rgba(255,255,255,0.05);border-radius:6px;padding:.65rem 1rem;margin-top:.65rem;font-size:0.71rem;color:rgba(255,255,255,0.4);line-height:1.6;border-left:2px solid var(--sky);}
+.intro-card h2{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--gold);margin-bottom:6px;}
+.intro-card p{font-size:0.88rem;color:rgba(255,255,255,0.72);line-height:1.7;}
+.cite-block{background:rgba(255,255,255,0.05);border-radius:6px;padding:.7rem 1rem;margin-top:.7rem;font-size:0.78rem;color:rgba(255,255,255,0.45);line-height:1.65;border-left:2px solid var(--sky);}
 
 /* PAGE TITLE */
 .page-title{display:flex;align-items:center;gap:.9rem;margin-bottom:1.4rem;}
-.page-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.page-title h2{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--navy);}
-.page-title p{font-size:0.74rem;color:var(--text-muted);margin-top:2px;}
+.page-icon{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.page-title h2{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--navy);}
+.page-title p{font-size:0.82rem;color:var(--text-muted);margin-top:2px;}
 
 /* CARD */
 .card{background:var(--white);border-radius:12px;border:1px solid var(--border);margin-bottom:1.2rem;overflow:hidden;}
-.card-header{background:var(--navy2);padding:.7rem 1.2rem;}
-.card-header-label{font-size:0.67rem;font-weight:500;letter-spacing:.07em;color:var(--sky);}
-.card-body{padding:1.2rem;}
+.card-header{background:var(--navy2);padding:.75rem 1.2rem;}
+.card-header-label{font-size:0.72rem;font-weight:500;letter-spacing:.07em;color:var(--sky);}
+.card-body{padding:1.3rem;}
 
 /* FIELDS */
 .field-grid{display:grid;gap:1rem;}
 .g2{grid-template-columns:1fr 1fr;}
 .g3{grid-template-columns:1fr 1fr 1fr;}
 @media(max-width:580px){.g2,.g3{grid-template-columns:1fr;}}
-.field{display:flex;flex-direction:column;gap:4px;}
-.field label{font-size:0.73rem;font-weight:500;color:var(--text-muted);}
+.field{display:flex;flex-direction:column;gap:5px;}
+.field label{font-size:0.82rem;font-weight:500;color:var(--text-muted);}
 .field label .req{color:#c0392b;margin-left:2px;}
 .field input,.field select,.field textarea{
   border:1px solid var(--border);border-radius:6px;
-  padding:.48rem .72rem;font-size:0.82rem;
+  padding:.52rem .78rem;font-size:0.88rem;
   font-family:'DM Sans',sans-serif;color:var(--text-main);
   background:#f8fbfe;transition:border-color .2s,background .2s;outline:none;
 }
 .field input:focus,.field select:focus{border-color:var(--blue-light);background:#fff;}
 
 /* LIKERT */
-.dim-banner{display:flex;align-items:center;gap:.55rem;padding:.55rem 1.2rem;font-size:0.69rem;font-weight:500;letter-spacing:.06em;color:#fff;}
+.dim-banner{display:flex;align-items:center;gap:.55rem;padding:.6rem 1.2rem;font-size:0.75rem;font-weight:500;letter-spacing:.06em;color:#fff;}
 .dim-spec{background:var(--navy3);}
 .dim-cred{background:#0e2e5c;}
 .dim-coord{background:#0f2a10;}
@@ -102,82 +97,124 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-m
 .dot-gold{background:var(--gold);}
 .dot-sky{background:var(--sky);}
 .dot-green{background:#5cb85c;}
-.likert-hdr{
-  display:grid;grid-template-columns:2.2fr repeat(5,1fr);gap:3px;
-  padding:.45rem 1.2rem .2rem;background:#f4f7fb;border-bottom:1px solid var(--border);
-}
-.likert-hdr span{font-size:0.59rem;font-weight:500;text-align:center;color:var(--text-muted);line-height:1.3;}
-.likert-item{
-  display:grid;grid-template-columns:2.2fr repeat(5,1fr);gap:3px;
-  align-items:center;padding:.52rem 1.2rem;border-bottom:1px solid #eef2f8;transition:background .15s;
-}
+.likert-hdr{display:grid;grid-template-columns:2.2fr repeat(5,1fr);gap:3px;padding:.5rem 1.2rem .25rem;background:#f4f7fb;border-bottom:1px solid var(--border);}
+.likert-hdr span{font-size:0.65rem;font-weight:500;text-align:center;color:var(--text-muted);line-height:1.35;}
+.likert-item{display:grid;grid-template-columns:2.2fr repeat(5,1fr);gap:3px;align-items:center;padding:.58rem 1.2rem;border-bottom:1px solid #eef2f8;transition:background .15s;}
 .likert-item:last-child{border-bottom:none;}
 .likert-item:hover{background:#f7fafd;}
 .likert-item.answered{background:#eef5ff;}
-.item-text{font-size:0.78rem;color:var(--text-main);line-height:1.45;padding-right:6px;}
-.item-num{font-size:0.65rem;font-weight:500;color:var(--blue-light);margin-right:4px;}
+.item-text{font-size:0.85rem;color:var(--text-main);line-height:1.5;padding-right:6px;}
+.item-num{font-size:0.7rem;font-weight:500;color:var(--blue-light);margin-right:4px;}
 .radio-cell{display:flex;justify-content:center;align-items:center;}
-.radio-cell input[type=radio]{width:17px;height:17px;accent-color:var(--blue-light);cursor:pointer;}
+.radio-cell input[type=radio]{width:18px;height:18px;accent-color:var(--blue-light);cursor:pointer;}
 
 /* NAV */
 .nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;gap:1rem;}
-.btn{padding:.65rem 1.75rem;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.83rem;font-weight:500;cursor:pointer;border:none;transition:all .2s;}
+.btn{padding:.7rem 1.9rem;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:500;cursor:pointer;border:none;transition:all .2s;}
 .btn-back{background:transparent;border:1px solid var(--border);color:var(--text-muted);}
 .btn-back:hover{background:var(--border);}
 .btn-next{background:var(--navy);color:var(--gold);border:1px solid var(--gold);}
 .btn-next:hover{background:var(--navy2);transform:translateY(-1px);}
 .btn-next:active{transform:translateY(0);}
 .btn-next:disabled{opacity:.45;cursor:not-allowed;transform:none;}
-.btn-submit{padding:.8rem 2.5rem;font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:.06em;}
-.page-counter{font-size:0.69rem;color:var(--text-muted);}
+.btn-submit{padding:.85rem 2.8rem;font-family:'Cormorant Garamond',serif;font-size:1.1rem;letter-spacing:.06em;}
+.page-counter{font-size:0.78rem;color:var(--text-muted);}
 
 /* ERROR */
-.error-msg{color:#92130a;font-size:.77rem;background:#fef0f0;border:1px solid #f5c6cb;border-radius:6px;padding:.55rem 1rem;display:none;margin-top:.65rem;}
+.error-msg{color:#92130a;font-size:.82rem;background:#fef0f0;border:1px solid #f5c6cb;border-radius:6px;padding:.6rem 1rem;display:none;margin-top:.7rem;}
 
 /* CONSENT */
-.consent-row{display:flex;align-items:flex-start;gap:.55rem;margin-top:.5rem;}
-.consent-row input[type=checkbox]{width:16px;height:16px;accent-color:var(--blue-light);flex-shrink:0;margin-top:3px;cursor:pointer;}
-.consent-row label{font-size:.74rem;color:var(--text-muted);line-height:1.55;cursor:pointer;}
+.consent-row{display:flex;align-items:flex-start;gap:.6rem;margin-top:.5rem;}
+.consent-row input[type=checkbox]{width:18px;height:18px;accent-color:var(--blue-light);flex-shrink:0;margin-top:3px;cursor:pointer;}
+.consent-row label{font-size:.82rem;color:var(--text-muted);line-height:1.6;cursor:pointer;}
 
 /* SUCCESS */
-.success-banner{background:#e8f5e9;border:1px solid #66bb6a;border-radius:8px;padding:.8rem 1.2rem;font-size:.82rem;color:#2e7d32;font-weight:500;text-align:center;display:none;margin-bottom:1.2rem;}
+.success-banner{background:#e8f5e9;border:1px solid #66bb6a;border-radius:8px;padding:.85rem 1.2rem;font-size:.88rem;color:#2e7d32;font-weight:500;text-align:center;display:none;margin-bottom:1.2rem;}
 
 /* RESULTS */
 .results-wrap{background:var(--navy);border-radius:14px;padding:1.75rem;display:none;}
-.results-wrap h2{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);text-align:center;margin-bottom:1.4rem;}
+.results-wrap h2{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold);text-align:center;margin-bottom:1.4rem;}
 .score-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.9rem;margin-bottom:1.2rem;}
 .score-item{background:rgba(255,255,255,.06);border-radius:8px;padding:.9rem;text-align:center;}
-.s-label{font-size:.63rem;letter-spacing:.07em;margin-bottom:5px;font-weight:500;}
-.s-val{font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:600;line-height:1;}
-.s-max{font-size:.67rem;opacity:.4;margin-top:3px;}
+.s-label{font-size:.68rem;letter-spacing:.07em;margin-bottom:5px;font-weight:500;}
+.s-val{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;line-height:1;}
+.s-max{font-size:.7rem;opacity:.4;margin-top:3px;}
 .c-spec{color:var(--sky);}
 .c-cred{color:var(--blue-pale);}
 .c-coord{color:#8be88b;}
 .c-total{color:var(--gold);}
-.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
-.bar-row label{font-size:.66rem;color:rgba(255,255,255,.42);width:105px;flex-shrink:0;}
-.bar-track{flex:1;height:8px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden;}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.bar-row label{font-size:.7rem;color:rgba(255,255,255,.45);width:110px;flex-shrink:0;}
+.bar-track{flex:1;height:9px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden;}
 .bar-fill{height:100%;border-radius:4px;transition:width .9s ease;}
 .bf-spec{background:var(--sky);}
 .bf-cred{background:var(--blue-pale);}
 .bf-coord{background:#5cb85c;}
 .bf-total{background:linear-gradient(90deg,var(--sky),var(--gold));}
-.bar-pct{font-size:.67rem;color:rgba(255,255,255,.35);width:34px;text-align:right;flex-shrink:0;}
-.interp-block{background:rgba(255,255,255,.05);border-radius:8px;padding:1rem 1.2rem;font-size:.79rem;color:rgba(255,255,255,.7);line-height:1.65;border-left:3px solid var(--gold);}
+.bar-pct{font-size:.7rem;color:rgba(255,255,255,.38);width:36px;text-align:right;flex-shrink:0;}
+.interp-block{background:rgba(255,255,255,.05);border-radius:8px;padding:1rem 1.2rem;font-size:.85rem;color:rgba(255,255,255,.75);line-height:1.7;border-left:3px solid var(--gold);}
 
 /* FOOTER */
-footer{background:var(--navy);color:rgba(255,255,255,.3);text-align:center;padding:1.5rem;font-size:.68rem;line-height:1.75;border-top:1px solid rgba(255,255,255,.07);}
+footer{background:var(--navy);color:rgba(255,255,255,.35);text-align:center;padding:1.75rem;font-size:.78rem;line-height:1.85;border-top:1px solid rgba(255,255,255,.07);}
 footer a{color:var(--gold-light);text-decoration:none;}
-footer strong{color:rgba(255,255,255,.52);}
+footer strong{color:rgba(255,255,255,.55);}
+
+/* ACCESS GATE */
+#accessGate{display:none;position:fixed;inset:0;z-index:999;background:var(--navy);flex-direction:column;align-items:center;justify-content:center;padding:2rem;}
+.gate-box{background:var(--navy2);border:1.5px solid var(--gold);border-radius:16px;padding:3rem 2.5rem;max-width:460px;width:100%;text-align:center;}
+.gate-logo{width:88px;height:88px;border-radius:50%;border:2.5px solid var(--gold);background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;}
+.gate-logo img{width:76px;height:76px;object-fit:contain;filter:brightness(1.4) contrast(1.1);}
+.gate-title{font-family:'Cormorant Garamond',serif;font-size:1.75rem;color:var(--gold);margin-bottom:.5rem;}
+.gate-subtitle{font-size:0.92rem;color:rgba(255,255,255,0.58);line-height:1.65;margin-bottom:1.75rem;}
+#accessCode{
+  width:100%;padding:.85rem 1.2rem;margin-bottom:.85rem;
+  border:1.5px solid rgba(255,255,255,0.22);border-radius:8px;
+  background:rgba(255,255,255,0.08);color:#fff;
+  font-size:1.1rem;font-family:'DM Sans',sans-serif;
+  outline:none;text-align:center;letter-spacing:0.15em;
+}
+#accessCode:focus{border-color:var(--gold);}
+#accessCode::placeholder{letter-spacing:0.05em;color:rgba(255,255,255,0.3);font-size:0.95rem;}
+.gate-btn{
+  width:100%;padding:.9rem;margin-top:.25rem;
+  background:var(--navy3);color:var(--gold);
+  border:1.5px solid var(--gold);border-radius:8px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;font-weight:500;letter-spacing:.08em;cursor:pointer;
+  transition:background .2s;
+}
+.gate-btn:hover{background:var(--blue-mid);}
+#accessError{display:none;margin-bottom:.75rem;font-size:0.82rem;color:#f08080;background:rgba(240,80,80,0.1);border:1px solid rgba(240,80,80,0.3);border-radius:6px;padding:.55rem .85rem;}
+.gate-footer{margin-top:1.75rem;font-size:0.78rem;color:rgba(255,255,255,0.28);line-height:1.7;}
+.gate-footer a{color:rgba(240,180,41,0.55);text-decoration:none;}
 </style>
 </head>
 <body>
 
+<!-- ACCESS GATE -->
+<div id="accessGate">
+  <div class="gate-box">
+    <div class="gate-logo">
+      <img src="logo.png" alt="Logo TMS"
+           onerror="this.outerHTML='<svg width=64 height=64 viewBox=\'0 0 56 56\' fill=\'none\'><ellipse cx=28 cy=28 rx=22 ry=20 stroke=\'#f0b429\' stroke-width=1.8/><circle cx=28 cy=28 r=6 stroke=\'#7ab8e8\' stroke-width=1.5/><text x=28 y=49 text-anchor=\'middle\' font-size=8 fill=\'#7ab8e8\' font-family=\'serif\'>TMS</text></svg>'">
+    </div>
+    <h2 class="gate-title">Acceso restringido</h2>
+    <p class="gate-subtitle">Este instrumento es de uso exclusivo para participantes autorizados.<br>Ingrese el código de acceso para continuar.</p>
+    <input type="password" id="accessCode" placeholder="Ingrese su código de acceso" onkeydown="if(event.key==='Enter')checkAccess()">
+    <div id="accessError">⚠ Código incorrecto. Por favor intente nuevamente.</div>
+    <button class="gate-btn" onclick="checkAccess()">Ingresar al instrumento</button>
+    <div class="gate-footer">
+      © 2025 <strong style="color:rgba(255,255,255,0.45)">María del Pilar García-Chitiva</strong> · Todos los derechos reservados<br>
+      <a href="https://pilargarciach.github.io/mpgch_research-literacy/" target="_blank">pilargarciach.github.io/mpgch_research-literacy</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
 <header class="header">
   <div class="header-inner">
     <div class="logo-wrap">
-      <img id="logoImg" src="logo.png" alt="Logo TMS"
-           onerror="this.outerHTML='<svg width=56 height=56 viewBox=\'0 0 56 56\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><ellipse cx=28 cy=28 rx=22 ry=20 fill=\'none\' stroke=\'#f0b429\' stroke-width=1.8/><circle cx=28 cy=28 r=6 fill=\'none\' stroke=\'#7ab8e8\' stroke-width=1.5/><path d=\'M22 22 Q28 14 34 22\' stroke=\'#f0b429\' stroke-width=1.4 fill=\'none\'/><line x1=28 y1=22 x2=28 y2=17 stroke=\'#f0b429\' stroke-width=1.4/><text x=28 y=49 text-anchor=\'middle\' font-size=7 fill=\'#7ab8e8\' font-family=\'serif\'>TMS</text></svg>'">
+      <img src="logo.png" alt="Logo TMS" onerror="this.style.display='none'">
     </div>
     <div class="header-text">
       <h1>Escala de Sistema de Memoria Transactiva (TMS)</h1>
@@ -188,100 +225,23 @@ footer strong{color:rgba(255,255,255,.52);}
   <div class="stepper-wrap"><nav class="stepper" id="stepper"></nav></div>
 </header>
 
-<div id="accessGate" style="
-  display:none; position:fixed; inset:0; z-index:999;
-  background:var(--navy);
-  flex-direction:column; align-items:center; justify-content:center;
-  padding:2rem;">
-
-  <div style="
-    background:var(--navy2);
-    border:1px solid var(--gold);
-    border-radius:14px;
-    padding:2.5rem 2rem;
-    max-width:400px; width:100%;
-    text-align:center;">
-
-    <div style="margin-bottom:1.25rem;">
-      <div style="
-        width:70px; height:70px; border-radius:50%;
-        border:2.5px solid var(--gold);
-        background:rgba(255,255,255,0.1);
-        display:flex; align-items:center; justify-content:center;
-        margin:0 auto 1rem;">
-        <img src="logo.png" style="width:60px;height:60px;object-fit:contain;filter:brightness(1.4) contrast(1.1);"
-             onerror="this.outerHTML='<svg width=40 height=40 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#f0b429\' stroke-width=\'1.5\'><rect x=3 y=11 width=18 height=11 rx=2/><path d=\'M7 11V7a5 5 0 0 1 10 0v4\'/></svg>'">
-      </div>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--gold);margin-bottom:6px;">
-        Acceso restringido
-      </h2>
-      <p style="font-size:0.78rem;color:rgba(255,255,255,0.55);line-height:1.6;">
-        Este instrumento es de uso exclusivo para participantes autorizados.<br>
-        Ingrese el código de acceso para continuar.
-      </p>
-    </div>
-
-    <div style="margin-bottom:1rem;">
-      <input type="password" id="accessCode"
-        placeholder="Código de acceso"
-        onkeydown="if(event.key==='Enter') checkAccess()"
-        style="
-          width:100%; padding:0.65rem 1rem;
-          border:1px solid rgba(255,255,255,0.2);
-          border-radius:6px;
-          background:rgba(255,255,255,0.07);
-          color:#fff; font-size:0.9rem;
-          font-family:'DM Sans',sans-serif;
-          outline:none; text-align:center;
-          letter-spacing:0.1em;">
-    </div>
-
-    <div id="accessError" style="
-      display:none; margin-bottom:0.85rem;
-      font-size:0.75rem; color:#f08080;
-      background:rgba(240,80,80,0.1);
-      border:1px solid rgba(240,80,80,0.3);
-      border-radius:6px; padding:0.5rem 0.75rem;">
-      ⚠ Código incorrecto. Intente nuevamente.
-    </div>
-
-    <button onclick="checkAccess()" style="
-      width:100%; padding:0.75rem;
-      background:var(--navy3); color:var(--gold);
-      border:1px solid var(--gold); border-radius:6px;
-      font-family:'Cormorant Garamond',serif;
-      font-size:1rem; font-weight:500;
-      letter-spacing:0.07em; cursor:pointer;">
-      Ingresar
-    </button>
-
-    <p style="margin-top:1.25rem;font-size:0.68rem;color:rgba(255,255,255,0.25);line-height:1.6;">
-      © 2025 María del Pilar García-Chitiva · Todos los derechos reservados<br>
-      <a href="https://pilargarciach.github.io/mpgch_research-literacy/" target="_blank" style="color:rgba(240,180,41,0.5);text-decoration:none;">https://pilargarciach.github.io/mpgch_research-literacy/</a>
-    </p>
-  </div>
-</div>
-
 <main class="main">
 
-<!-- ── PÁGINA 1: DATOS DEMOGRÁFICOS ── -->
-<div class="page active" id="page-1">
+<!-- PÁGINA 1: DATOS DEMOGRÁFICOS -->
+<div class="page" id="page-1">
   <div class="intro-card">
     <h2>Instrucciones generales</h2>
     <p>Este instrumento mide el <strong style="color:var(--gold)">Sistema de Memoria Transactiva (TMS)</strong> en equipos de trabajo. Responda con base en su experiencia más reciente de colaboración en equipo. No hay respuestas correctas ni incorrectas. Sus datos son completamente confidenciales y se usarán únicamente con fines de investigación.</p>
     <div class="cite-block">
-      <strong style="color:rgba(255,255,255,.58)">Créditos:</strong> Escala original: Lewis, K. (2003). <em>Journal of Applied Psychology, 88</em>(4), 587–604. &nbsp;|&nbsp; Adaptación y validación al español: M. del P. García-Chitiva (2021), Universidad Pedagógica Nacional, Bogotá, Colombia.
+      <strong style="color:rgba(255,255,255,.6)">Créditos:</strong> Escala original: Lewis, K. (2003). <em>Journal of Applied Psychology, 88</em>(4), 587–604. &nbsp;|&nbsp; Adaptación y validación al español: M. del P. García-Chitiva (2021), Universidad Pedagógica Nacional, Bogotá, Colombia.
     </div>
   </div>
 
   <div class="page-title">
     <div class="page-icon" style="background:var(--navy3)">
-      <svg width=22 height=22 viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="1.8"><circle cx=12 cy=7 r=4/><path d="M2 21c0-5 4-8 10-8s10 3 10 8"/></svg>
+      <svg width=24 height=24 viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="1.8"><circle cx=12 cy=7 r=4/><path d="M2 21c0-5 4-8 10-8s10 3 10 8"/></svg>
     </div>
-    <div>
-      <h2>Datos demográficos e institucionales</h2>
-      <p>Información sobre su perfil y contexto de trabajo</p>
-    </div>
+    <div><h2>Datos demográficos e institucionales</h2><p>Información sobre su perfil y contexto de trabajo</p></div>
   </div>
 
   <div class="card">
@@ -289,6 +249,7 @@ footer strong{color:rgba(255,255,255,.52);}
     <div class="card-body">
       <div class="field-grid g2">
         <div class="field"><label>Nombre de la institución <span class="req">*</span></label><input type="text" id="institucion" placeholder="Ej. Universidad Pedagógica Nacional"></div>
+        <div class="field"><label>Correo electrónico institucional o de empresa <span class="req">*</span></label><input type="email" id="correo" placeholder="Ej. nombre@institucion.edu.co"></div>
         <div class="field"><label>País <span class="req">*</span></label><input type="text" id="pais" placeholder="Ej. Colombia"></div>
         <div class="field"><label>Ciudad de origen <span class="req">*</span></label><input type="text" id="ciudadOrigen" placeholder="Ciudad donde nació"></div>
         <div class="field"><label>Ciudad de residencia actual <span class="req">*</span></label><input type="text" id="ciudadResidencia" placeholder="Ciudad donde vive actualmente"></div>
@@ -318,8 +279,8 @@ footer strong{color:rgba(255,255,255,.52);}
         <div class="field"><label>¿Prefiere trabajar en equipo o de forma individual? <span class="req">*</span></label>
           <select id="prefEquipo"><option value="">Seleccione…</option><option>Prefiero trabajar en equipo</option><option>Prefiero trabajar de forma individual</option><option>Me adapto a ambas situaciones</option></select>
         </div>
-        <div class="field"><label>¿Cuándo fue la última vez que trabajaste en equipo? <span class="req">*</span></label>
-          <select id="gustaEquipo"><option value="">Seleccione…</option><option>Hoy</option><option>Esta semana</option><option>Este mes</option><option>Hace varios meses</option><option>Hace mucho tiempo</option><option>Nunca</option></select>
+        <div class="field"><label>¿Le gusta trabajar en equipo? <span class="req">*</span></label>
+          <select id="gustaEquipo"><option value="">Seleccione…</option><option>Sí, me gusta mucho</option><option>Sí, me gusta</option><option>Me es indiferente</option><option>No me gusta</option><option>No me gusta en absoluto</option></select>
         </div>
       </div>
     </div>
@@ -332,24 +293,20 @@ footer strong{color:rgba(255,255,255,.52);}
   </div>
 </div>
 
-
-<!-- ── PÁGINA 2: ESPECIALIZACIÓN ── -->
+<!-- PÁGINA 2: ESPECIALIZACIÓN -->
 <div class="page" id="page-2">
   <div class="page-title">
     <div class="page-icon" style="background:var(--navy3)">
-      <svg width=22 height=22 viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><path d="M12 2a7 7 0 1 1 0 14A7 7 0 0 1 12 2z"/><path d="M9 12l2 2 4-4"/><path d="M12 16v5M8 21h8"/></svg>
+      <svg width=24 height=24 viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><path d="M12 2a7 7 0 1 1 0 14A7 7 0 0 1 12 2z"/><path d="M9 12l2 2 4-4"/><path d="M12 16v5M8 21h8"/></svg>
     </div>
     <div><h2>Dimensión 1 — Especialización</h2><p>Conocimiento especializado y diferenciado dentro del equipo · 7 ítems</p></div>
   </div>
-  <div class="intro-card" style="padding:.9rem 1.2rem;margin-bottom:1.2rem;">
-    <p style="font-size:.77rem;color:rgba(255,255,255,.65);">La <strong style="color:var(--sky)">Especialización</strong> refleja en qué medida los miembros han desarrollado conocimiento diferenciado y complementario, y en qué medida cada persona es reconocida como experta en un área específica del equipo.</p>
+  <div class="intro-card" style="padding:.95rem 1.3rem;margin-bottom:1.2rem;">
+    <p>La <strong style="color:var(--sky)">Especialización</strong> refleja en qué medida los miembros han desarrollado conocimiento diferenciado y complementario, y en qué medida cada persona es reconocida como experta en un área específica del equipo.</p>
   </div>
   <div class="card">
     <div class="dim-banner dim-spec"><div class="dim-dot dot-gold"></div>ESPECIALIZACIÓN — Specialization</div>
-    <div class="likert-hdr">
-      <span></span>
-      <span>Totalmente en desacuerdo (1)</span><span>En desacuerdo (2)</span><span>Ni en acuerdo ni en desacuerdo (3)</span><span>De acuerdo (4)</span><span>Totalmente de acuerdo (5)</span>
-    </div>
+    <div class="likert-hdr"><span></span><span>Totalmente en desacuerdo (1)</span><span>En desacuerdo (2)</span><span>Ni en acuerdo ni en desacuerdo (3)</span><span>De acuerdo (4)</span><span>Totalmente de acuerdo (5)</span></div>
     <div id="spec-items"></div>
   </div>
   <div id="err-2" class="error-msg">⚠ Por favor responda todos los ítems antes de continuar.</div>
@@ -360,24 +317,20 @@ footer strong{color:rgba(255,255,255,.52);}
   </div>
 </div>
 
-
-<!-- ── PÁGINA 3: CREDIBILIDAD ── -->
+<!-- PÁGINA 3: CREDIBILIDAD -->
 <div class="page" id="page-3">
   <div class="page-title">
     <div class="page-icon" style="background:#0e2e5c">
-      <svg width=22 height=22 viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <svg width=24 height=24 viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
     </div>
     <div><h2>Dimensión 2 — Credibilidad</h2><p>Confianza en el conocimiento de los demás miembros · 6 ítems</p></div>
   </div>
-  <div class="intro-card" style="padding:.9rem 1.2rem;margin-bottom:1.2rem;">
-    <p style="font-size:.77rem;color:rgba(255,255,255,.65);">La <strong style="color:var(--sky)">Credibilidad</strong> (Trust) evalúa el grado de confianza que los miembros depositan en el conocimiento y la experticia de sus compañeros. Los ítems con <em style="color:rgba(255,255,255,.5)">(R)</em> son de puntuación inversa y ya serán calculados automáticamente.</p>
+  <div class="intro-card" style="padding:.95rem 1.3rem;margin-bottom:1.2rem;">
+    <p>La <strong style="color:var(--sky)">Credibilidad</strong> (Trust) evalúa el grado de confianza que los miembros depositan en el conocimiento de sus compañeros. Los ítems con <em style="color:rgba(255,255,255,.5)">(R)</em> son de puntuación inversa y se calculan automáticamente.</p>
   </div>
   <div class="card">
-    <div class="dim-banner dim-cred"><div class="dim-dot dot-sky"></div>CREDIBILIDAD / CONFIANZA — Trust &amp; Credibility<span style="margin-left:auto;font-size:.59rem;color:rgba(255,255,255,.35)">(R) = ítem inverso</span></div>
-    <div class="likert-hdr">
-      <span></span>
-      <span>Totalmente en desacuerdo (1)</span><span>En desacuerdo (2)</span><span>Ni en acuerdo ni en desacuerdo (3)</span><span>De acuerdo (4)</span><span>Totalmente de acuerdo (5)</span>
-    </div>
+    <div class="dim-banner dim-cred"><div class="dim-dot dot-sky"></div>CREDIBILIDAD / CONFIANZA — Trust &amp; Credibility<span style="margin-left:auto;font-size:.65rem;color:rgba(255,255,255,.35)">(R) = ítem inverso</span></div>
+    <div class="likert-hdr"><span></span><span>Totalmente en desacuerdo (1)</span><span>En desacuerdo (2)</span><span>Ni en acuerdo ni en desacuerdo (3)</span><span>De acuerdo (4)</span><span>Totalmente de acuerdo (5)</span></div>
     <div id="cred-items"></div>
   </div>
   <div id="err-3" class="error-msg">⚠ Por favor responda todos los ítems antes de continuar.</div>
@@ -388,24 +341,20 @@ footer strong{color:rgba(255,255,255,.52);}
   </div>
 </div>
 
-
-<!-- ── PÁGINA 4: COORDINACIÓN ── -->
+<!-- PÁGINA 4: COORDINACIÓN -->
 <div class="page" id="page-4">
   <div class="page-title">
     <div class="page-icon" style="background:#0f2a10">
-      <svg width=22 height=22 viewBox="0 0 24 24" fill="none" stroke="#5cb85c" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx=9 cy=7 r=4/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <svg width=24 height=24 viewBox="0 0 24 24" fill="none" stroke="#5cb85c" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx=9 cy=7 r=4/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
     </div>
     <div><h2>Dimensión 3 — Coordinación</h2><p>Procesos de coordinación y trabajo conjunto del equipo · 7 ítems</p></div>
   </div>
-  <div class="intro-card" style="padding:.9rem 1.2rem;margin-bottom:1.2rem;">
-    <p style="font-size:.77rem;color:rgba(255,255,255,.65);">La <strong style="color:#8be88b">Coordinación</strong> evalúa la calidad de los procesos de trabajo conjunto: comunicación, distribución de tareas y eficiencia colectiva. Los ítems con <em style="color:rgba(255,255,255,.5)">(R)</em> son de puntuación inversa.</p>
+  <div class="intro-card" style="padding:.95rem 1.3rem;margin-bottom:1.2rem;">
+    <p>La <strong style="color:#8be88b">Coordinación</strong> evalúa la calidad de los procesos de trabajo conjunto: comunicación, distribución de tareas y eficiencia colectiva. Los ítems con <em style="color:rgba(255,255,255,.5)">(R)</em> son de puntuación inversa.</p>
   </div>
   <div class="card">
-    <div class="dim-banner dim-coord"><div class="dim-dot dot-green"></div>COORDINACIÓN — Coordination<span style="margin-left:auto;font-size:.59rem;color:rgba(255,255,255,.35)">(R) = ítem inverso</span></div>
-    <div class="likert-hdr">
-      <span></span>
-      <span>Totalmente en desacuerdo (1)</span><span>En desacuerdo (2)</span><span>Ni en acuerdo ni en desacuerdo (3)</span><span>De acuerdo (4)</span><span>Totalmente de acuerdo (5)</span>
-    </div>
+    <div class="dim-banner dim-coord"><div class="dim-dot dot-green"></div>COORDINACIÓN — Coordination<span style="margin-left:auto;font-size:.65rem;color:rgba(255,255,255,.35)">(R) = ítem inverso</span></div>
+    <div class="likert-hdr"><span></span><span>Totalmente en desacuerdo (1)</span><span>En desacuerdo (2)</span><span>Ni en acuerdo ni en desacuerdo (3)</span><span>De acuerdo (4)</span><span>Totalmente de acuerdo (5)</span></div>
     <div id="coord-items"></div>
   </div>
   <div id="err-4" class="error-msg">⚠ Por favor responda todos los ítems antes de continuar.</div>
@@ -416,25 +365,24 @@ footer strong{color:rgba(255,255,255,.52);}
   </div>
 </div>
 
-
-<!-- ── PÁGINA 5: CONSENTIMIENTO Y ENVÍO ── -->
+<!-- PÁGINA 5: CONSENTIMIENTO Y ENVÍO -->
 <div class="page" id="page-5">
   <div class="page-title">
-    <div class="page-icon" style="background:var(--navy3);font-size:1.2rem">
-      <svg width=22 height=22 viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><path d="M9 12l2 2 4-4M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z"/></svg>
+    <div class="page-icon" style="background:var(--navy3)">
+      <svg width=24 height=24 viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><path d="M9 12l2 2 4-4M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z"/></svg>
     </div>
     <div><h2>Revisión y envío</h2><p>Verifique su información y envíe el formulario</p></div>
   </div>
 
   <div class="card">
     <div class="card-header"><span class="card-header-label">RESUMEN DE SUS RESPUESTAS</span></div>
-    <div class="card-body" id="summaryBody" style="font-size:.79rem;color:var(--text-muted);line-height:1.8;"></div>
+    <div class="card-body" id="summaryBody" style="font-size:.85rem;color:var(--text-muted);line-height:1.85;"></div>
   </div>
 
   <div class="card">
     <div class="card-header"><span class="card-header-label">CONSENTIMIENTO INFORMADO</span></div>
     <div class="card-body">
-      <p style="font-size:.78rem;color:var(--text-muted);line-height:1.6;margin-bottom:.7rem;">Antes de enviar sus respuestas, por favor lea y acepte el siguiente consentimiento:</p>
+      <p style="font-size:.85rem;color:var(--text-muted);line-height:1.65;margin-bottom:.8rem;">Antes de enviar sus respuestas, por favor lea y acepte el siguiente consentimiento:</p>
       <div class="consent-row">
         <input type="checkbox" id="consentimiento">
         <label for="consentimiento">Declaro que participo de forma <strong>voluntaria</strong> en este estudio y autorizo el uso de mis respuestas con fines académicos e investigativos, garantizando la confidencialidad de mi información personal de acuerdo con la normativa vigente de protección de datos. Entiendo que mis respuestas serán tratadas de forma anónima y agregada.</label>
@@ -451,7 +399,6 @@ footer strong{color:rgba(255,255,255,.52);}
     <button class="btn btn-next btn-submit" id="submitBtn" onclick="submitForm()">Enviar respuestas</button>
   </div>
 
-  <!-- RESULTADOS -->
   <div class="results-wrap" id="resultsCard" style="margin-top:1.75rem;">
     <h2>Sus resultados individuales — TMS</h2>
     <div class="score-grid">
@@ -467,23 +414,24 @@ footer strong{color:rgba(255,255,255,.52);}
       <div class="bar-row"><label style="color:var(--gold)">TMS Total</label><div class="bar-track"><div class="bar-fill bf-total" id="bar-total" style="width:0"></div></div><span class="bar-pct" id="pct-total">0%</span></div>
     </div>
     <div class="interp-block" id="interpText"></div>
-    <p style="font-size:.67rem;color:rgba(255,255,255,.28);margin-top:1rem;text-align:center">Nota: este resultado es individual. El puntaje del equipo se obtiene promediando las respuestas de todos los miembros.</p>
+    <p style="font-size:.75rem;color:rgba(255,255,255,.28);margin-top:1rem;text-align:center">Nota: este resultado es individual. El puntaje del equipo se obtiene promediando las respuestas de todos los miembros.</p>
   </div>
 </div>
 
 </main>
 
 <footer>
-  <p style="font-size:0.9rem;">© 2025 <strong>María del Pilar García-Chitiva</strong> · Todos los derechos reservados</p>  
-  <p style="margin-top:4px;font-size:0.9rem;"><a href="https://pilargarciach.github.io/mpgch_research-literacy/" target="_blank">pilargarciach.github.io</a></p>
-  <p style="margin-top:7px;font-size:0.82rem;opacity:.8">
+  <p style="font-size:0.92rem;">© 2025 <strong>María del Pilar García-Chitiva</strong> · Todos los derechos reservados</p>
+  <p style="margin-top:5px;font-size:0.92rem;"><a href="https://pilargarciach.github.io/mpgch_research-literacy/" target="_blank">pilargarciach.github.io/mpgch_research-literacy</a></p>
+  <p style="margin-top:8px;font-size:0.82rem;opacity:.85">
     Instrumento original: Lewis, K. (2003). Measuring transactive memory systems in the field. <em>Journal of Applied Psychology, 88</em>(4), 587–604.<br>
     Adaptación y validación al español: M. del P. García-Chitiva (2021) · Universidad Pedagógica Nacional, Bogotá, Colombia.
   </p>
 </footer>
 
 <script>
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx1c63ycZkXwjbmb4R-AEAxz21PZL4WPbJOO_JZIU0pJiRqIF0I0osw4wGcBwOXSR7rRQ/exec';
+// ── REEMPLAZA ESTA URL CON LA NUEVA QUE GENERES AL REIMPLEMENTAR ──
+const APPS_SCRIPT_URL = 'PEGA_AQUI_TU_URL_DE_APPS_SCRIPT';
 
 const ITEMS = {
   spec:[
@@ -513,42 +461,54 @@ const ITEMS = {
     {id:'CO7', text:'Las responsabilidades dentro del equipo estuvieron claramente distribuidas.'}
   ]
 };
+
 const allItems = [...ITEMS.spec, ...ITEMS.cred, ...ITEMS.coord];
 const answered = {};
 let currentPage = 1;
-
 const STEPS = ['Datos demográficos','Especialización','Credibilidad','Coordinación','Envío'];
 
 function buildStepper(){
-  const nav = document.getElementById('stepper');
-  nav.innerHTML = '';
+  const nav=document.getElementById('stepper');
+  nav.innerHTML='';
   STEPS.forEach((s,i)=>{
     const n=i+1;
     const d=document.createElement('div');
     d.className='step-item'+(n===currentPage?' active':n<currentPage?' done':'');
-    d.innerHTML=`<div class="step-num">${n<currentPage?'✓':n}</div><span class="step-label">${s}</span>`;
+    d.innerHTML='<div class="step-num">'+(n<currentPage?'✓':n)+'</div><span class="step-label">'+s+'</span>';
     nav.appendChild(d);
-    if(i<STEPS.length-1){const c=document.createElement('div');c.className='step-conn'+(n<currentPage?' done':'');nav.appendChild(c);}
+    if(i<STEPS.length-1){
+      const c=document.createElement('div');
+      c.className='step-conn'+(n<currentPage?' done':'');
+      nav.appendChild(c);
+    }
   });
 }
 
-function renderItems(cid, arr){
+function renderItems(cid,arr){
   const c=document.getElementById(cid);
   arr.forEach((item,idx)=>{
     const row=document.createElement('div');
-    row.className='likert-item';row.id='row-'+item.id;
-    let h=`<div class="item-text"><span class="item-num">${idx+1}.</span>${item.text}`;
-    if(item.rev) h+=` <em style="font-size:.6rem;color:#999">&nbsp;(R)</em>`;
-    h+=`</div>`;
-    for(let v=1;v<=5;v++) h+=`<div class="radio-cell"><input type="radio" name="${item.id}" value="${v}" onchange="onAnswer('${item.id}',${v})"></div>`;
-    row.innerHTML=h;c.appendChild(row);
+    row.className='likert-item';
+    row.id='row-'+item.id;
+    let h='<div class="item-text"><span class="item-num">'+(idx+1)+'.</span>'+item.text;
+    if(item.rev) h+=' <em style="font-size:.65rem;color:#aaa">&nbsp;(R)</em>';
+    h+='</div>';
+    for(let v=1;v<=5;v++){
+      h+='<div class="radio-cell"><input type="radio" name="'+item.id+'" value="'+v+'" onchange="onAnswer(\''+item.id+'\','+v+')"></div>';
+    }
+    row.innerHTML=h;
+    c.appendChild(row);
   });
 }
-renderItems('spec-items', ITEMS.spec);
-renderItems('cred-items', ITEMS.cred);
+
+renderItems('spec-items',ITEMS.spec);
+renderItems('cred-items',ITEMS.cred);
 renderItems('coord-items',ITEMS.coord);
 
-function onAnswer(id,val){answered[id]=val;document.getElementById('row-'+id).classList.add('answered');}
+function onAnswer(id,val){
+  answered[id]=val;
+  document.getElementById('row-'+id).classList.add('answered');
+}
 
 function goTo(n){
   document.getElementById('page-'+currentPage).classList.remove('active');
@@ -563,18 +523,21 @@ function goNext(from){
   const err=document.getElementById('err-'+from);
   err.style.display='none';
   if(from===1){
-    const req=['institucion','pais','ciudadOrigen','ciudadResidencia','fechaNacimiento','genero','rol','prefEquipo','gustaEquipo'];
-    if(!req.every(id=>document.getElementById(id).value.trim())){err.style.display='block';return;}
+    const req=['institucion','correo','pais','ciudadOrigen','ciudadResidencia','fechaNacimiento','genero','rol','prefEquipo','gustaEquipo'];
+    if(!req.every(function(id){return document.getElementById(id).value.trim()!=='';})){
+      err.style.display='block';return;
+    }
   }
-  if(from===2&&!ITEMS.spec.every(i=>answered[i.id])){err.style.display='block';return;}
-  if(from===3&&!ITEMS.cred.every(i=>answered[i.id])){err.style.display='block';return;}
-  if(from===4&&!ITEMS.coord.every(i=>answered[i.id])){err.style.display='block';return;}
+  if(from===2&&!ITEMS.spec.every(function(i){return answered[i.id];})){err.style.display='block';return;}
+  if(from===3&&!ITEMS.cred.every(function(i){return answered[i.id];})){err.style.display='block';return;}
+  if(from===4&&!ITEMS.coord.every(function(i){return answered[i.id];})){err.style.display='block';return;}
   goTo(from+1);
 }
 
 function buildSummary(){
   const rows=[
     ['Institución',document.getElementById('institucion').value],
+    ['Correo electrónico',document.getElementById('correo').value],
     ['País',document.getElementById('pais').value],
     ['Ciudad de origen',document.getElementById('ciudadOrigen').value],
     ['Ciudad de residencia',document.getElementById('ciudadResidencia').value],
@@ -582,96 +545,133 @@ function buildSummary(){
     ['Género',document.getElementById('genero').value],
     ['Rol',document.getElementById('rol').value],
     ['Preferencia de trabajo',document.getElementById('prefEquipo').value],
-    ['¿Le gusta trabajar en equipo?',document.getElementById('gustaEquipo').value],
-    ['Ítems respondidos',Object.keys(answered).length+' / '+allItems.length]
+    ['Le gusta trabajar en equipo',document.getElementById('gustaEquipo').value],
+    ['Items respondidos',Object.keys(answered).length+' / '+allItems.length]
   ];
-  document.getElementById('summaryBody').innerHTML=rows.map(([k,v])=>
-    `<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f0f4f8">
-      <span style="color:var(--text-muted)">${k}</span>
-      <span style="font-weight:500;text-align:right;max-width:58%">${v||'—'}</span></div>`
-  ).join('');
+  document.getElementById('summaryBody').innerHTML=rows.map(function(r){
+    return '<div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #f0f4f8"><span style="color:var(--text-muted)">'+r[0]+'</span><span style="font-weight:500;text-align:right;max-width:58%">'+(r[1]||'—')+'</span></div>';
+  }).join('');
 }
 
 function rev(v){return 6-v;}
+
 function calcScores(){
-  const spec  = ITEMS.spec.reduce((s,i)=>s+(answered[i.id]||0),0);
-  const cred  = ITEMS.cred.reduce((s,i)=>s+(i.rev?rev(answered[i.id]||0):(answered[i.id]||0)),0);
-  const coord = ITEMS.coord.reduce((s,i)=>s+(i.rev?rev(answered[i.id]||0):(answered[i.id]||0)),0);
-  return {spec,cred,coord,total:spec+cred+coord};
+  var spec=0,cred=0,coord=0;
+  ITEMS.spec.forEach(function(i){spec+=(answered[i.id]||0);});
+  ITEMS.cred.forEach(function(i){cred+=i.rev?rev(answered[i.id]||0):(answered[i.id]||0);});
+  ITEMS.coord.forEach(function(i){coord+=i.rev?rev(answered[i.id]||0):(answered[i.id]||0);});
+  return {spec:spec,cred:cred,coord:coord,total:spec+cred+coord};
 }
 
 function submitForm(){
-  const err=document.getElementById('err-5');err.style.display='none';
+  var err=document.getElementById('err-5');
+  err.style.display='none';
   if(!document.getElementById('consentimiento').checked){err.style.display='block';return;}
-  const dob=new Date(document.getElementById('fechaNacimiento').value);
-  const today=new Date();
-  let age=today.getFullYear()-dob.getFullYear();
+
+  var dob=new Date(document.getElementById('fechaNacimiento').value);
+  var today=new Date();
+  var age=today.getFullYear()-dob.getFullYear();
   if(today.getMonth()<dob.getMonth()||(today.getMonth()===dob.getMonth()&&today.getDate()<dob.getDate()))age--;
-  const sc=calcScores();
-  const payload={
-    timestamp:new Date().toISOString(),
-    institucion:document.getElementById('institucion').value,
-    pais:document.getElementById('pais').value,
-    ciudadOrigen:document.getElementById('ciudadOrigen').value,
-    ciudadResidencia:document.getElementById('ciudadResidencia').value,
-    fechaNacimiento:document.getElementById('fechaNacimiento').value,
-    edad:age,
-    genero:document.getElementById('genero').value,
-    rol:document.getElementById('rol').value,
-    prefEquipo:document.getElementById('prefEquipo').value,
-    gustaEquipo:document.getElementById('gustaEquipo').value,
-    ...Object.fromEntries(allItems.map(i=>[i.id,i.rev?rev(answered[i.id]||0):(answered[i.id]||0)])),
-    especializacion:sc.spec,credibilidad:sc.cred,coordinacion:sc.coord,tmsTotal:sc.total
+
+  var sc=calcScores();
+
+  var payload={
+    timestamp: new Date().toISOString(),
+    institucion: document.getElementById('institucion').value,
+    correo: document.getElementById('correo').value,
+    pais: document.getElementById('pais').value,
+    ciudadOrigen: document.getElementById('ciudadOrigen').value,
+    ciudadResidencia: document.getElementById('ciudadResidencia').value,
+    fechaNacimiento: document.getElementById('fechaNacimiento').value,
+    edad: age,
+    genero: document.getElementById('genero').value,
+    rol: document.getElementById('rol').value,
+    prefEquipo: document.getElementById('prefEquipo').value,
+    gustaEquipo: document.getElementById('gustaEquipo').value,
+    S1: answered['S1']||0, S2: answered['S2']||0, S3: answered['S3']||0,
+    S4: answered['S4']||0, S5: answered['S5']||0, S6: answered['S6']||0, S7: answered['S7']||0,
+    C1: answered['C1']||0, C2: answered['C2']||0, C3: answered['C3']||0,
+    C4: ITEMS.cred[3].rev?rev(answered['C4']||0):(answered['C4']||0),
+    C5: ITEMS.cred[4].rev?rev(answered['C5']||0):(answered['C5']||0),
+    C6: answered['C6']||0,
+    CO1: answered['CO1']||0, CO2: answered['CO2']||0,
+    CO3: ITEMS.coord[2].rev?rev(answered['CO3']||0):(answered['CO3']||0),
+    CO4: answered['CO4']||0,
+    CO5: ITEMS.coord[4].rev?rev(answered['CO5']||0):(answered['CO5']||0),
+    CO6: answered['CO6']||0, CO7: answered['CO7']||0,
+    especializacion: sc.spec,
+    credibilidad: sc.cred,
+    coordinacion: sc.coord,
+    tmsTotal: sc.total
   };
-  const btn=document.getElementById('submitBtn');
-  btn.disabled=true;btn.textContent='Enviando…';
-  fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-  .finally(()=>{
+
+  var btn=document.getElementById('submitBtn');
+  btn.disabled=true;
+  btn.textContent='Enviando...';
+
+  var xhr=new XMLHttpRequest();
+  xhr.open('POST', APPS_SCRIPT_URL, true);
+  xhr.setRequestHeader('Content-Type','text/plain');
+  xhr.onreadystatechange=function(){
+    if(xhr.readyState===4){
+      showResults(sc);
+      document.getElementById('successBanner').style.display='block';
+      btn.textContent='Enviado';
+    }
+  };
+  xhr.onerror=function(){
     showResults(sc);
     document.getElementById('successBanner').style.display='block';
-    btn.textContent='Enviado ✓';
-  });
+    btn.textContent='Enviado';
+  };
+  xhr.send(JSON.stringify(payload));
 }
 
 function showResults(sc){
-  const card=document.getElementById('resultsCard');card.style.display='block';
+  var card=document.getElementById('resultsCard');
+  card.style.display='block';
   document.getElementById('res-spec').textContent=sc.spec;
   document.getElementById('res-cred').textContent=sc.cred;
   document.getElementById('res-coord').textContent=sc.coord;
   document.getElementById('res-total').textContent=sc.total;
-  setTimeout(()=>{
-    const ps=Math.round((sc.spec/35)*100),pc=Math.round((sc.cred/30)*100),
-          pco=Math.round((sc.coord/35)*100),pt=Math.round((sc.total/75)*100);
-    ['spec','cred','coord','total'].forEach((d,i)=>{
-      const v=[ps,pc,pco,pt][i];
-      document.getElementById('bar-'+d).style.width=v+'%';
-      document.getElementById('pct-'+d).textContent=v+'%';
-    });
-    const pct=pt;
-    let txt='';
-    if(pct>=80)txt=`<strong style="color:#8be88b">TMS Alto (${sc.total}/75 — ${pct}%)</strong>: Su equipo presenta un sistema de memoria transactiva bien desarrollado. Los miembros han desarrollado conocimiento especializado y complementario, confían mutuamente en la experticia del otro y coordinan sus tareas de forma fluida y eficiente. Esto favorece un alto aprovechamiento del conocimiento colectivo.`;
-    else if(pct>=50)txt=`<strong style="color:var(--gold)">TMS Moderado (${sc.total}/75 — ${pct}%)</strong>: Su equipo muestra un sistema de memoria transactiva en desarrollo. Algunas dimensiones pueden ser más sólidas que otras. Es recomendable fortalecer las áreas con puntuación más baja para mejorar la integración del conocimiento colectivo.`;
-    else txt=`<strong style="color:#f08080">TMS Bajo (${sc.total}/75 — ${pct}%)</strong>: El sistema de memoria transactiva del equipo presenta oportunidades de mejora. Se recomienda trabajar en la diferenciación de roles y conocimientos, el desarrollo de la confianza mutua y la mejora de los procesos de coordinación colectiva.`;
+  setTimeout(function(){
+    var ps=Math.round((sc.spec/35)*100);
+    var pc=Math.round((sc.cred/30)*100);
+    var pco=Math.round((sc.coord/35)*100);
+    var pt=Math.round((sc.total/75)*100);
+    document.getElementById('bar-spec').style.width=ps+'%';
+    document.getElementById('bar-cred').style.width=pc+'%';
+    document.getElementById('bar-coord').style.width=pco+'%';
+    document.getElementById('bar-total').style.width=pt+'%';
+    document.getElementById('pct-spec').textContent=ps+'%';
+    document.getElementById('pct-cred').textContent=pc+'%';
+    document.getElementById('pct-coord').textContent=pco+'%';
+    document.getElementById('pct-total').textContent=pt+'%';
+    var txt='';
+    if(pt>=80) txt='<strong style="color:#8be88b">TMS Alto ('+sc.total+'/75 — '+pt+'%)</strong>: Su equipo presenta un sistema de memoria transactiva bien desarrollado. Los miembros han desarrollado conocimiento especializado y complementario, confían mutuamente en la experticia del otro y coordinan sus tareas de forma fluida y eficiente.';
+    else if(pt>=50) txt='<strong style="color:#f0b429">TMS Moderado ('+sc.total+'/75 — '+pt+'%)</strong>: Su equipo muestra un sistema de memoria transactiva en desarrollo. Algunas dimensiones pueden ser más sólidas que otras. Es recomendable fortalecer las áreas con puntuación más baja.';
+    else txt='<strong style="color:#f08080">TMS Bajo ('+sc.total+'/75 — '+pt+'%)</strong>: El sistema de memoria transactiva del equipo presenta oportunidades de mejora significativas. Se recomienda trabajar en diferenciación de roles, confianza mutua y procesos de coordinación.';
     document.getElementById('interpText').innerHTML=txt;
   },200);
   card.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-function checkAccess() {
-  const input = document.getElementById('accessCode').value;
-  const errEl = document.getElementById('accessError');
-  if (input === 'team2021**') {
-    document.getElementById('accessGate').style.display = 'none';
+function checkAccess(){
+  var input=document.getElementById('accessCode').value;
+  var errEl=document.getElementById('accessError');
+  if(input==='team2021**'){
+    document.getElementById('accessGate').style.display='none';
     document.getElementById('page-1').classList.add('active');
   } else {
-    errEl.style.display = 'block';
-    document.getElementById('accessCode').value = '';
+    errEl.style.display='block';
+    document.getElementById('accessCode').value='';
     document.getElementById('accessCode').focus();
   }
 }
+
+// Iniciar mostrando el gate
 buildStepper();
-document.getElementById('page-1').classList.remove('active');
-document.getElementById('accessGate').style.display = 'flex';
+document.getElementById('accessGate').style.display='flex';
 </script>
 </body>
 </html>
