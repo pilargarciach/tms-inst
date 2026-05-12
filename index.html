@@ -431,7 +431,7 @@ footer strong{color:rgba(255,255,255,.55);}
 
 <script>
 // ── REEMPLAZA ESTA URL CON LA NUEVA QUE GENERES AL REIMPLEMENTAR ──
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxysPSvCUf1usKABKz3_2jXYPrlQvKPXtGepRkcyYx3SCIXckIYaqopbHs90xwpb7AXrg/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRVyzsQBGiO8FRZOjwLgE7GEeXlzxQMgqOTDmkw5VIPXH5ve2vxfqIWsb7OWV_Ow4TVQ/exec';
 
 const ITEMS = {
   spec:[
@@ -609,22 +609,15 @@ function submitForm(){
   btn.disabled=true;
   btn.textContent='Enviando...';
 
-  var xhr=new XMLHttpRequest();
-  xhr.open('POST', APPS_SCRIPT_URL, true);
-  xhr.setRequestHeader('Content-Type','text/plain');
-  xhr.onreadystatechange=function(){
-    if(xhr.readyState===4){
-      showResults(sc);
-      document.getElementById('successBanner').style.display='block';
-      btn.textContent='Enviado';
-    }
-  };
-  xhr.onerror=function(){
+ var url = APPS_SCRIPT_URL + '?data=' + encodeURIComponent(JSON.stringify(payload));
+  var img = new Image();
+  img.src = url;
+
+  setTimeout(function(){
     showResults(sc);
     document.getElementById('successBanner').style.display='block';
     btn.textContent='Enviado';
-  };
-  xhr.send(JSON.stringify(payload));
+  }, 2000);
 }
 
 function showResults(sc){
