@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escala TMS – Sistema de Memoria Transactiva</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:       #0b1f3a;
+  --navy2:      #0d2548;
+  --navy3:      #112d55;
+  --blue-mid:   #1a5499;
+  --blue-light: #2e7fd4;
+  --blue-pale:  #c8dff5;
+  --sky:        #7ab8e8;
+  --gold:       #f0b429;
+  --gold-light: #ffd56b;
+  --cream:      #f2f6fb;
+  --white:      #ffffff;
+  --text-main:  #111827;
+  --text-muted: #4b5563;
+  --border:     #ccd8e8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-main);min-height:100vh;}
+
+/* HEADER */
+.header{background:var(--navy);position:sticky;top:0;z-index:200;}
+.header-inner{max-width:900px;margin:0 auto;padding:1rem 1.5rem;display:flex;align-items:center;gap:1.25rem;}
+.logo-wrap{
+  width:68px;height:68px;flex-shrink:0;border-radius:50%;
+  border:2.5px solid var(--gold);
+  background:rgba(255,255,255,0.12);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.logo-wrap img{width:60px;height:60px;object-fit:contain;filter:brightness(1.4) contrast(1.1) saturate(1.2);}
+.header-text h1{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--gold);line-height:1.2;}
+.header-text p{font-size:0.72rem;color:var(--sky);margin-top:3px;font-weight:300;letter-spacing:0.02em;}
+.header-stripe{height:3px;background:linear-gradient(90deg,var(--blue-light),var(--gold),var(--sky));}
+
+/* STEPPER */
+.stepper-wrap{background:var(--navy2);padding:0.55rem 1.5rem;overflow-x:auto;}
+.stepper{max-width:900px;margin:0 auto;display:flex;align-items:center;}
+.step-item{display:flex;align-items:center;gap:6px;padding:4px 10px;border-radius:20px;white-space:nowrap;}
+.step-item.active{background:rgba(255,255,255,0.1);}
+.step-num{width:22px;height:22px;border-radius:50%;font-size:0.64rem;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.15);transition:all .3s;}
+.step-item.done .step-num{background:var(--blue-mid);color:#fff;border-color:var(--blue-mid);}
+.step-item.active .step-num{background:var(--gold);color:var(--navy);border-color:var(--gold);}
+.step-label{font-size:0.67rem;color:rgba(255,255,255,0.32);letter-spacing:0.04em;transition:color .2s;}
+.step-item.done .step-label{color:var(--sky);}
+.step-item.active .step-label{color:var(--gold);font-weight:500;}
+.step-conn{width:20px;height:1px;background:rgba(255,255,255,0.1);flex-shrink:0;}
+.step-conn.done{background:var(--blue-mid);}
+
+/* MAIN */
+.main{max-width:900px;margin:0 auto;padding:2rem 1.5rem 5rem;}
+.page{display:none;}
+.page.active{display:block;animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* INTRO */
+.intro-card{background:var(--navy);border-radius:12px;padding:1.4rem 1.65rem;margin-bottom:1.5rem;border-left:4px solid var(--gold);}
+.intro-card h2{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--gold);margin-bottom:6px;}
+.intro-card p{font-size:0.79rem;color:rgba(255,255,255,0.68);line-height:1.65;}
+.cite-block{background:rgba(255,255,255,0.05);border-radius:6px;padding:.65rem 1rem;margin-top:.65rem;font-size:0.71rem;color:rgba(255,255,255,0.4);line-height:1.6;border-left:2px solid var(--sky);}
+
+/* PAGE TITLE */
+.page-title{display:flex;align-items:center;gap:.9rem;margin-bottom:1.4rem;}
+.page-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.page-title h2{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--navy);}
+.page-title p{font-size:0.74rem;color:var(--text-muted);margin-top:2px;}
+
+/* CARD */
+.card{background:var(--white);border-radius:12px;border:1px solid var(--border);margin-bottom:1.2rem;overflow:hidden;}
+.card-header{background:var(--navy2);padding:.7rem 1.2rem;}
+.card-header-label{font-size:0.67rem;font-weight:500;letter-spacing:.07em;color:var(--sky);}
+.card-body{padding:1.2rem;}
+
+/* FIELDS */
+.field-grid{display:grid;gap:1rem;}
+.g2{grid-template-columns:1fr 1fr;}
+.g3{grid-template-columns:1fr 1fr 1fr;}
+@media(max-width:580px){.g2,.g3{grid-template-columns:1fr;}}
+.field{display:flex;flex-direction:column;gap:4px;}
+.field label{font-size:0.73rem;font-weight:500;color:var(--text-muted);}
+.field label .req{color:#c0392b;margin-left:2px;}
+.field input,.field select,.field textarea{
+  border:1px solid var(--border);border-radius:6px;
+  padding:.48rem .72rem;font-size:0.82rem;
+  font-family:'DM Sans',sans-serif;color:var(--text-main);
+  background:#f8fbfe;transition:border-color .2s,background .2s;outline:none;
+}
+.field input:focus,.field select:focus{border-color:var(--blue-light);background:#fff;}
+
+/* LIKERT */
+.dim-banner{display:flex;align-items:center;gap:.55rem;padding:.55rem 1.2rem;font-size:0.69rem;font-weight:500;letter-spacing:.06em;color:#fff;}
+.dim-spec{background:var(--navy3);}
+.dim-cred{background:#0e2e5c;}
+.dim-coord{background:#0f2a10;}
+.dim-dot{width:8px;height:8px;border-radius:50%;}
+.dot-gold{background:var(--gold);}
+.dot-sky{background:var(--sky);}
+.dot-green{background:#5cb85c;}
+.likert-hdr{
+  display:grid;grid-template-columns:2.2fr repeat(5,1fr);gap:3px;
+  padding:.45rem 1.2rem .2rem;background:#f4f7fb;border-bottom:1px solid var(--border);
+}
+.likert-hdr span{font-size:0.59rem;font-weight:500;text-align:center;color:var(--text-muted);line-height:1.3;}
+.likert-item{
+  display:grid;grid-template-columns:2.2fr repeat(5,1fr);gap:3px;
+  align-items:center;padding:.52rem 1.2rem;border-bottom:1px solid #eef2f8;transition:background .15s;
+}
+.likert-item:last-child{border-bottom:none;}
+.likert-item:hover{background:#f7fafd;}
+.likert-item.answered{background:#eef5ff;}
+.item-text{font-size:0.78rem;color:var(--text-main);line-height:1.45;padding-right:6px;}
+.item-num{font-size:0.65rem;font-weight:500;color:var(--blue-light);margin-right:4px;}
+.radio-cell{display:flex;justify-content:center;align-items:center;}
+.radio-cell input[type=radio]{width:17px;height:17px;accent-color:var(--blue-light);cursor:pointer;}
+
+/* NAV */
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;gap:1rem;}
+.btn{padding:.65rem 1.75rem;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.83rem;font-weight:500;cursor:pointer;border:none;transition:all .2s;}
+.btn-back{background:transparent;border:1px solid var(--border);color:var(--text-muted);}
+.btn-back:hover{background:var(--border);}
+.btn-next{background:var(--navy);color:var(--gold);border:1px solid var(--gold);}
+.btn-next:hover{background:var(--navy2);transform:translateY(-1px);}
+.btn-next:active{transform:translateY(0);}
+.btn-next:disabled{opacity:.45;cursor:not-allowed;transform:none;}
+.btn-submit{padding:.8rem 2.5rem;font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:.06em;}
+.page-counter{font-size:0.69rem;color:var(--text-muted);}
+
+/* ERROR */
+.error-msg{color:#92130a;font-size:.77rem;background:#fef0f0;border:1px solid #f5c6cb;border-radius:6px;padding:.55rem 1rem;display:none;margin-top:.65rem;}
+
+/* CONSENT */
+.consent-row{display:flex;align-items:flex-start;gap:.55rem;margin-top:.5rem;}
+.consent-row input[type=checkbox]{width:16px;height:16px;accent-color:var(--blue-light);flex-shrink:0;margin-top:3px;cursor:pointer;}
+.consent-row label{font-size:.74rem;color:var(--text-muted);line-height:1.55;cursor:pointer;}
+
+/* SUCCESS */
+.success-banner{background:#e8f5e9;border:1px solid #66bb6a;border-radius:8px;padding:.8rem 1.2rem;font-size:.82rem;color:#2e7d32;font-weight:500;text-align:center;display:none;margin-bottom:1.2rem;}
+
+/* RESULTS */
+.results-wrap{background:var(--navy);border-radius:14px;padding:1.75rem;display:none;}
+.results-wrap h2{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);text-align:center;margin-bottom:1.4rem;}
+.score-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.9rem;margin-bottom:1.2rem;}
+.score-item{background:rgba(255,255,255,.06);border-radius:8px;padding:.9rem;text-align:center;}
+.s-label{font-size:.63rem;letter-spacing:.07em;margin-bottom:5px;font-weight:500;}
+.s-val{font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:600;line-height:1;}
+.s-max{font-size:.67rem;opacity:.4;margin-top:3px;}
+.c-spec{color:var(--sky);}
+.c-cred{color:var(--blue-pale);}
+.c-coord{color:#8be88b;}
+.c-total{color:var(--gold);}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
+.bar-row label{font-size:.66rem;color:rgba(255,255,255,.42);width:105px;flex-shrink:0;}
+.bar-track{flex:1;height:8px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:4px;transition:width .9s ease;}
+.bf-spec{background:var(--sky);}
+.bf-cred{background:var(--blue-pale);}
+.bf-coord{background:#5cb85c;}
+.bf-total{background:linear-gradient(90deg,var(--sky),var(--gold));}
+.bar-pct{font-size:.67rem;color:rgba(255,255,255,.35);width:34px;text-align:right;flex-shrink:0;}
+.interp-block{background:rgba(255,255,255,.05);border-radius:8px;padding:1rem 1.2rem;font-size:.79rem;color:rgba(255,255,255,.7);line-height:1.65;border-left:3px solid var(--gold);}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.3);text-align:center;padding:1.5rem;font-size:.68rem;line-height:1.75;border-top:1px solid rgba(255,255,255,.07);}
+footer a{color:var(--gold-light);text-decoration:none;}
+footer strong{color:rgba(255,255,255,.52);}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <img id="logoImg" src="logo1.png" alt="Logo TMS"
+           onerror="this.outerHTML='<svg width=56 height=56 viewBox=\'0 0 56 56\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><ellipse cx=28 cy=28 rx=22 ry=20 fill=\'none\' stroke=\'#f0b429\' stroke-width=1.8/><circle cx=28 cy=28 r=6 fill=\'none\' stroke=\'#7ab8e8\' stroke-width=1.5/><path d=\'M22 22 Q28 14 34 22\' stroke=\'#f0b429\' stroke-width=1.4 fill=\'none\'/><line x1=28 y1=22 x2=28 y2=17 stroke=\'#f0b429\' stroke-width=1.4/><text x=28 y=49 text-anchor=\'middle\' font-size=7 fill=\'#7ab8e8\' font-family=\'serif\'>TMS</text></svg>'">
+    </div>
+    <div class="header-text">
+      <h1>Escala de Sistema de Memoria Transactiva (TMS)</h1>
+      <p>Instrumento validado · 3 dimensiones · 17 ítems · Escala Likert 5 puntos · García-Chitiva, 2021</p>
+    </div>
+  </div>
+  <div class="header-stripe"></div>
+  <div class="stepper-wrap"><nav class="stepper" id="stepper"></nav></div>
+</header>
+
+<main class="main">
+
+<!-- ── PÁGINA 1: DATOS DEMOGRÁFICOS ── -->
+<div class="page active" id="page-1">
+  <div class="intro-card">
+    <h2>Instrucciones generales</h2>
+    <p>Este instrumento mide el <strong style="color:var(--gold)">Sistema de Memoria Transactiva (TMS)</strong> en equipos de trabajo. Responda con base en su experiencia más reciente de colaboración en equipo. No hay respuestas correctas ni incorrectas. Sus datos son completamente confidenciales y se usarán únicamente con fines de investigación.</p>
+    <div class="cite-block">
+      <strong style="color:rgba(255,255,255,.58)">Créditos:</strong> Escala original: Lewis, K. (2003). <em>Journal of Applied Psychology, 88</em>(4), 587–604. &nbsp;|&nbsp; Adaptación y validación al español: M. del P. García-Chitiva (2021), Universidad Pedagógica Nacional, Bogotá, Colombia.
+    </div>
+  </div>
+
+  <div class="page-title">
+    <div class="page-icon" style="background:var(--navy3)">
+      <svg width=22 height=22 viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="1.8"><circle cx=12 cy=7 r=4/><path d="M2 21c0-5 4-8 10-8s10 3 10 8"/></svg>
+    </div>
+    <div>
+      <h2>Datos demográficos e institucionales</h2>
+      <p>Información sobre su perfil y contexto de trabajo</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-header-label">INFORMACIÓN INSTITUCIONAL</span></div>
+    <div class="card-body">
+      <div class="field-grid g2">
+        <div class="field"><label>Nombre de la institución <span class="req">*</span></label><input type="text" id="institucion" placeholder="Ej. Universidad Pedagógica Nacional"></div>
+        <div class="field"><label>País <span class="req">*</span></label><input type="text" id="pais" placeholder="Ej. Colombia"></div>
+        <div class="field"><label>Ciudad de origen <span class="req">*</span></label><input type="text" id="ciudadOrigen" placeholder="Ciudad donde nació"></div>
+        <div class="field"><label>Ciudad de residencia actual <span class="req">*</span></label><input type="text" id="ciudadResidencia" placeholder="Ciudad donde vive actualmente"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-header-label">PERFIL PERSONAL</span></div>
+    <div class="card-body">
+      <div class="field-grid g3">
+        <div class="field"><label>Fecha de nacimiento <span class="req">*</span></label><input type="date" id="fechaNacimiento"></div>
+        <div class="field"><label>Género <span class="req">*</span></label>
+          <select id="genero"><option value="">Seleccione…</option><option>Femenino</option><option>Masculino</option><option>No binario / Género fluido</option><option>Otro</option><option>Prefiero no decirlo</option></select>
+        </div>
+        <div class="field"><label>Rol en la institución <span class="req">*</span></label>
+          <select id="rol"><option value="">Seleccione…</option><option>Estudiante de pregrado</option><option>Estudiante de posgrado</option><option>Docente</option><option>Directivo</option><option>Administrativo</option><option>Investigador</option><option>Otro</option></select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-header-label">PREFERENCIAS DE TRABAJO EN EQUIPO</span></div>
+    <div class="card-body">
+      <div class="field-grid g2">
+        <div class="field"><label>¿Prefiere trabajar en equipo o de forma individual? <span class="req">*</span></label>
+          <select id="prefEquipo"><option value="">Seleccione…</option><option>Prefiero trabajar en equipo</option><option>Prefiero trabajar de forma individual</option><option>Me adapto a ambas situaciones</option></select>
+        </div>
+        <div class="field"><label>¿Le gusta trabajar en equipo? <span class="req">*</span></label>
+          <select id="gustaEquipo"><option value="">Seleccione…</option><option>Sí, me gusta mucho</option><option>Sí, me gusta</option><option>Me es indiferente</option><option>No me gusta</option><option>No me gusta en absoluto</option></select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="err-1" class="error-msg">⚠ Por favor complete todos los campos antes de continuar.</div>
+  <div class="nav-row">
+    <span class="page-counter">Página 1 de 5</span>
+    <button class="btn btn-next" onclick="goNext(1)">Continuar →</button>
+  </div>
+</div>
+
+
+<!-- ── PÁGINA 2: ESPECIALIZACIÓN ── -->
+<div class="page" id="page-2">
+  <div class="page-title">
+    <div class="page-icon" style="background:var(--navy3)">
+      <svg width=22 height=22 viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><path d="M12 2a7 7 0 1 1 0 14A7 7 0 0 1 12 2z"/><path d="M9 12l2 2 4-4"/><path d="M12 16v5M8 21h8"/></svg>
+    </div>
+    <div><h2>Dimensión 1 — Especialización</h2><p>Conocimiento especializado y diferenciado dentro del equipo · 7 ítems</p></div>
+  </div>
+  <div class="intro-card" style="padding:.9rem 1.2rem;margin-bottom:1.2rem;">
+    <p style="font-size:.77rem;color:rgba(255,255,255,.65);">La <strong style="color:var(--sky)">Especialización</strong> refleja en qué medida los miembros han desarrollado conocimiento diferenciado y complementario, y en qué medida cada persona es reconocida como experta en un área específica del equipo.</p>
+  </div>
+  <div class="card">
+    <div class="dim-banner dim-spec"><div class="dim-dot dot-gold"></div>ESPECIALIZACIÓN — Specialization</div>
+    <div class="likert-hdr">
+      <span></span>
+      <span>Totalmente en desacuerdo (1)</span><span>En desacuerdo (2)</span><span>Ni en acuerdo ni en desacuerdo (3)</span><span>De acuerdo (4)</span><span>Totalmente de acuerdo (5)</span>
+    </div>
+    <div id="spec-items"></div>
+  </div>
+  <div id="err-2" class="error-msg">⚠ Por favor responda todos los ítems antes de continuar.</div>
+  <div class="nav-row">
+    <button class="btn btn-back" onclick="goTo(1)">← Atrás</button>
+    <span class="page-counter">Página 2 de 5</span>
+    <button class="btn btn-next" onclick="goNext(2)">Continuar →</button>
+  </div>
+</div>
+
+
+<!-- ── PÁGINA 3: CREDIBILIDAD ── -->
+<div class="page" id="page-3">
+  <div class="page-title">
+    <div class="page-icon" style="background:#0e2e5c">
+      <svg width=22 height=22 viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <div><h2>Dimensión 2 — Credibilidad</h2><p>Confianza en el conocimiento de los demás miembros · 6 ítems</p></div>
+  </div>
+  <div class="intro-card" style="padding:.9rem 1.2rem;margin-bottom:1.2rem;">
+    <p style="font-size:.77rem;color:rgba(255,255,255,.65);">La <strong style="color:var(--sky)">Credibilidad</strong> (Trust) evalúa el grado de confianza que los miembros depositan en el conocimiento y la experticia de sus compañeros. Los ítems con <em style="color:rgba(255,255,255,.5)">(R)</em> son de puntuación inversa y ya serán calculados automáticamente.</p>
+  </div>
+  <div class="card">
+    <div class="dim-banner dim-cred"><div class="dim-dot dot-sky"></div>CREDIBILIDAD / CONFIANZA — Trust &amp; Credibility<span style="margin-left:auto;font-size:.59rem;color:rgba(255,255,255,.35)">(R) = ítem inverso</span></div>
+    <div class="likert-hdr">
+      <span></span>
+      <span>Totalmente en desacuerdo (1)</span><span>En desacuerdo (2)</span><span>Ni en acuerdo ni en desacuerdo (3)</span><span>De acuerdo (4)</span><span>Totalmente de acuerdo (5)</span>
+    </div>
+    <div id="cred-items"></div>
+  </div>
+  <div id="err-3" class="error-msg">⚠ Por favor responda todos los ítems antes de continuar.</div>
+  <div class="nav-row">
+    <button class="btn btn-back" onclick="goTo(2)">← Atrás</button>
+    <span class="page-counter">Página 3 de 5</span>
+    <button class="btn btn-next" onclick="goNext(3)">Continuar →</button>
+  </div>
+</div>
+
+
+<!-- ── PÁGINA 4: COORDINACIÓN ── -->
+<div class="page" id="page-4">
+  <div class="page-title">
+    <div class="page-icon" style="background:#0f2a10">
+      <svg width=22 height=22 viewBox="0 0 24 24" fill="none" stroke="#5cb85c" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx=9 cy=7 r=4/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <div><h2>Dimensión 3 — Coordinación</h2><p>Procesos de coordinación y trabajo conjunto del equipo · 7 ítems</p></div>
+  </div>
+  <div class="intro-card" style="padding:.9rem 1.2rem;margin-bottom:1.2rem;">
+    <p style="font-size:.77rem;color:rgba(255,255,255,.65);">La <strong style="color:#8be88b">Coordinación</strong> evalúa la calidad de los procesos de trabajo conjunto: comunicación, distribución de tareas y eficiencia colectiva. Los ítems con <em style="color:rgba(255,255,255,.5)">(R)</em> son de puntuación inversa.</p>
+  </div>
+  <div class="card">
+    <div class="dim-banner dim-coord"><div class="dim-dot dot-green"></div>COORDINACIÓN — Coordination<span style="margin-left:auto;font-size:.59rem;color:rgba(255,255,255,.35)">(R) = ítem inverso</span></div>
+    <div class="likert-hdr">
+      <span></span>
+      <span>Totalmente en desacuerdo (1)</span><span>En desacuerdo (2)</span><span>Ni en acuerdo ni en desacuerdo (3)</span><span>De acuerdo (4)</span><span>Totalmente de acuerdo (5)</span>
+    </div>
+    <div id="coord-items"></div>
+  </div>
+  <div id="err-4" class="error-msg">⚠ Por favor responda todos los ítems antes de continuar.</div>
+  <div class="nav-row">
+    <button class="btn btn-back" onclick="goTo(3)">← Atrás</button>
+    <span class="page-counter">Página 4 de 5</span>
+    <button class="btn btn-next" onclick="goNext(4)">Continuar →</button>
+  </div>
+</div>
+
+
+<!-- ── PÁGINA 5: CONSENTIMIENTO Y ENVÍO ── -->
+<div class="page" id="page-5">
+  <div class="page-title">
+    <div class="page-icon" style="background:var(--navy3);font-size:1.2rem">
+      <svg width=22 height=22 viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><path d="M9 12l2 2 4-4M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z"/></svg>
+    </div>
+    <div><h2>Revisión y envío</h2><p>Verifique su información y envíe el formulario</p></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-header-label">RESUMEN DE SUS RESPUESTAS</span></div>
+    <div class="card-body" id="summaryBody" style="font-size:.79rem;color:var(--text-muted);line-height:1.8;"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-header-label">CONSENTIMIENTO INFORMADO</span></div>
+    <div class="card-body">
+      <p style="font-size:.78rem;color:var(--text-muted);line-height:1.6;margin-bottom:.7rem;">Antes de enviar sus respuestas, por favor lea y acepte el siguiente consentimiento:</p>
+      <div class="consent-row">
+        <input type="checkbox" id="consentimiento">
+        <label for="consentimiento">Declaro que participo de forma <strong>voluntaria</strong> en este estudio y autorizo el uso de mis respuestas con fines académicos e investigativos, garantizando la confidencialidad de mi información personal de acuerdo con la normativa vigente de protección de datos. Entiendo que mis respuestas serán tratadas de forma anónima y agregada.</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="success-banner" id="successBanner">✓ Sus respuestas han sido enviadas exitosamente. ¡Muchas gracias por su participación!</div>
+  <div id="err-5" class="error-msg">⚠ Por favor acepte el consentimiento informado para poder enviar sus respuestas.</div>
+
+  <div class="nav-row">
+    <button class="btn btn-back" onclick="goTo(4)">← Atrás</button>
+    <span class="page-counter">Página 5 de 5</span>
+    <button class="btn btn-next btn-submit" id="submitBtn" onclick="submitForm()">Enviar respuestas</button>
+  </div>
+
+  <!-- RESULTADOS -->
+  <div class="results-wrap" id="resultsCard" style="margin-top:1.75rem;">
+    <h2>Sus resultados individuales — TMS</h2>
+    <div class="score-grid">
+      <div class="score-item"><div class="s-label c-spec">ESPECIALIZACIÓN</div><div class="s-val c-spec" id="res-spec">—</div><div class="s-max">/ 35 pts</div></div>
+      <div class="score-item"><div class="s-label c-cred">CREDIBILIDAD</div><div class="s-val c-cred" id="res-cred">—</div><div class="s-max">/ 30 pts</div></div>
+      <div class="score-item"><div class="s-label c-coord">COORDINACIÓN</div><div class="s-val c-coord" id="res-coord">—</div><div class="s-max">/ 35 pts</div></div>
+      <div class="score-item" style="border:1px solid rgba(240,180,41,.25)"><div class="s-label c-total">TMS TOTAL</div><div class="s-val c-total" id="res-total">—</div><div class="s-max">/ 75 pts</div></div>
+    </div>
+    <div style="margin-bottom:1.2rem;">
+      <div class="bar-row"><label>Especialización</label><div class="bar-track"><div class="bar-fill bf-spec" id="bar-spec" style="width:0"></div></div><span class="bar-pct" id="pct-spec">0%</span></div>
+      <div class="bar-row"><label>Credibilidad</label><div class="bar-track"><div class="bar-fill bf-cred" id="bar-cred" style="width:0"></div></div><span class="bar-pct" id="pct-cred">0%</span></div>
+      <div class="bar-row"><label>Coordinación</label><div class="bar-track"><div class="bar-fill bf-coord" id="bar-coord" style="width:0"></div></div><span class="bar-pct" id="pct-coord">0%</span></div>
+      <div class="bar-row"><label style="color:var(--gold)">TMS Total</label><div class="bar-track"><div class="bar-fill bf-total" id="bar-total" style="width:0"></div></div><span class="bar-pct" id="pct-total">0%</span></div>
+    </div>
+    <div class="interp-block" id="interpText"></div>
+    <p style="font-size:.67rem;color:rgba(255,255,255,.28);margin-top:1rem;text-align:center">Nota: este resultado es individual. El puntaje del equipo se obtiene promediando las respuestas de todos los miembros.</p>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <p>© 2025 <strong>María del Pilar García-Chitiva</strong> · Todos los derechos reservados</p>
+  <p style="margin-top:4px"><a href="https://mpgarciachitiva.com" target="_blank">mpgarciachitiva.com</a></p>
+  <p style="margin-top:7px;font-size:.63rem;opacity:.8">
+    Instrumento original: Lewis, K. (2003). Measuring transactive memory systems in the field. <em>Journal of Applied Psychology, 88</em>(4), 587–604.<br>
+    Adaptación y validación al español: M. del P. García-Chitiva (2021) · Universidad Pedagógica Nacional, Bogotá, Colombia.
+  </p>
+</footer>
+
+<script>
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/TU_DEPLOYMENT_ID_AQUI/exec';
+
+const ITEMS = {
+  spec:[
+    {id:'S1', text:'Cada miembro del grupo tiene conocimiento especializado de algunos aspectos de su grupo.'},
+    {id:'S2', text:'Tengo conocimiento sobre un aspecto del proyecto que otro miembro del grupo no tiene.'},
+    {id:'S3', text:'Diferentes miembros del grupo son responsables de acuerdo a su experticia en diferentes áreas.'},
+    {id:'S4', text:'La especialización del conocimiento de los diferentes miembros del grupo fue necesaria para completar los resultados del proyecto.'},
+    {id:'S5', text:'Conozco cuáles miembros del grupo tienen experticia en áreas específicas.'},
+    {id:'S6', text:'Mi participación en el equipo me ha permitido aprender de las áreas de experticia de los otros miembros del grupo.'},
+    {id:'S7', text:'El conocimiento especializado de cada miembro fue reconocido y valorado por el equipo.'}
+  ],
+  cred:[
+    {id:'C1', text:'Me sentí cómodo aceptando las sugerencias del procedimiento que los otros miembros del grupo me hicieron.'},
+    {id:'C2', text:'Confío en que el conocimiento de los otros miembros del proyecto sea creíble.'},
+    {id:'C3', text:'Confié en la información que los otros miembros de grupo llevaron a la discusión.'},
+    {id:'C4', text:'Cuando los otros miembros del grupo dieron información, quise hacer una verificación de ello.', rev:true},
+    {id:'C5', text:'No tuve mucha fe en la experticia de los otros miembros del grupo.', rev:true},
+    {id:'C6', text:'La confianza mutua en el equipo facilitó que cada uno aprovechara el conocimiento del otro.'}
+  ],
+  coord:[
+    {id:'CO1', text:'Nuestro grupo trabajó junto y con una buena coordinación.'},
+    {id:'CO2', text:'Nuestro grupo tuvo muy pocos malentendidos sobre lo que había que hacer.'},
+    {id:'CO3', text:'Nuestro grupo necesitó volver a empezar la tarea muchas veces.', rev:true},
+    {id:'CO4', text:'Nosotros cumplimos la tarea sin problemas y con eficiencia.'},
+    {id:'CO5', text:'Hubo mucha confusión sobre cómo completaríamos la tarea.', rev:true},
+    {id:'CO6', text:'El equipo coordinó el trabajo de forma que se aprovecharon las fortalezas individuales.'},
+    {id:'CO7', text:'Las responsabilidades dentro del equipo estuvieron claramente distribuidas.'}
+  ]
+};
+const allItems = [...ITEMS.spec, ...ITEMS.cred, ...ITEMS.coord];
+const answered = {};
+let currentPage = 1;
+
+const STEPS = ['Datos demográficos','Especialización','Credibilidad','Coordinación','Envío'];
+
+function buildStepper(){
+  const nav = document.getElementById('stepper');
+  nav.innerHTML = '';
+  STEPS.forEach((s,i)=>{
+    const n=i+1;
+    const d=document.createElement('div');
+    d.className='step-item'+(n===currentPage?' active':n<currentPage?' done':'');
+    d.innerHTML=`<div class="step-num">${n<currentPage?'✓':n}</div><span class="step-label">${s}</span>`;
+    nav.appendChild(d);
+    if(i<STEPS.length-1){const c=document.createElement('div');c.className='step-conn'+(n<currentPage?' done':'');nav.appendChild(c);}
+  });
+}
+
+function renderItems(cid, arr){
+  const c=document.getElementById(cid);
+  arr.forEach((item,idx)=>{
+    const row=document.createElement('div');
+    row.className='likert-item';row.id='row-'+item.id;
+    let h=`<div class="item-text"><span class="item-num">${idx+1}.</span>${item.text}`;
+    if(item.rev) h+=` <em style="font-size:.6rem;color:#999">&nbsp;(R)</em>`;
+    h+=`</div>`;
+    for(let v=1;v<=5;v++) h+=`<div class="radio-cell"><input type="radio" name="${item.id}" value="${v}" onchange="onAnswer('${item.id}',${v})"></div>`;
+    row.innerHTML=h;c.appendChild(row);
+  });
+}
+renderItems('spec-items', ITEMS.spec);
+renderItems('cred-items', ITEMS.cred);
+renderItems('coord-items',ITEMS.coord);
+
+function onAnswer(id,val){answered[id]=val;document.getElementById('row-'+id).classList.add('answered');}
+
+function goTo(n){
+  document.getElementById('page-'+currentPage).classList.remove('active');
+  currentPage=n;
+  document.getElementById('page-'+n).classList.add('active');
+  buildStepper();
+  if(n===5) buildSummary();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function goNext(from){
+  const err=document.getElementById('err-'+from);
+  err.style.display='none';
+  if(from===1){
+    const req=['institucion','pais','ciudadOrigen','ciudadResidencia','fechaNacimiento','genero','rol','prefEquipo','gustaEquipo'];
+    if(!req.every(id=>document.getElementById(id).value.trim())){err.style.display='block';return;}
+  }
+  if(from===2&&!ITEMS.spec.every(i=>answered[i.id])){err.style.display='block';return;}
+  if(from===3&&!ITEMS.cred.every(i=>answered[i.id])){err.style.display='block';return;}
+  if(from===4&&!ITEMS.coord.every(i=>answered[i.id])){err.style.display='block';return;}
+  goTo(from+1);
+}
+
+function buildSummary(){
+  const rows=[
+    ['Institución',document.getElementById('institucion').value],
+    ['País',document.getElementById('pais').value],
+    ['Ciudad de origen',document.getElementById('ciudadOrigen').value],
+    ['Ciudad de residencia',document.getElementById('ciudadResidencia').value],
+    ['Fecha de nacimiento',document.getElementById('fechaNacimiento').value],
+    ['Género',document.getElementById('genero').value],
+    ['Rol',document.getElementById('rol').value],
+    ['Preferencia de trabajo',document.getElementById('prefEquipo').value],
+    ['¿Le gusta trabajar en equipo?',document.getElementById('gustaEquipo').value],
+    ['Ítems respondidos',Object.keys(answered).length+' / '+allItems.length]
+  ];
+  document.getElementById('summaryBody').innerHTML=rows.map(([k,v])=>
+    `<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f0f4f8">
+      <span style="color:var(--text-muted)">${k}</span>
+      <span style="font-weight:500;text-align:right;max-width:58%">${v||'—'}</span></div>`
+  ).join('');
+}
+
+function rev(v){return 6-v;}
+function calcScores(){
+  const spec  = ITEMS.spec.reduce((s,i)=>s+(answered[i.id]||0),0);
+  const cred  = ITEMS.cred.reduce((s,i)=>s+(i.rev?rev(answered[i.id]||0):(answered[i.id]||0)),0);
+  const coord = ITEMS.coord.reduce((s,i)=>s+(i.rev?rev(answered[i.id]||0):(answered[i.id]||0)),0);
+  return {spec,cred,coord,total:spec+cred+coord};
+}
+
+function submitForm(){
+  const err=document.getElementById('err-5');err.style.display='none';
+  if(!document.getElementById('consentimiento').checked){err.style.display='block';return;}
+  const dob=new Date(document.getElementById('fechaNacimiento').value);
+  const today=new Date();
+  let age=today.getFullYear()-dob.getFullYear();
+  if(today.getMonth()<dob.getMonth()||(today.getMonth()===dob.getMonth()&&today.getDate()<dob.getDate()))age--;
+  const sc=calcScores();
+  const payload={
+    timestamp:new Date().toISOString(),
+    institucion:document.getElementById('institucion').value,
+    pais:document.getElementById('pais').value,
+    ciudadOrigen:document.getElementById('ciudadOrigen').value,
+    ciudadResidencia:document.getElementById('ciudadResidencia').value,
+    fechaNacimiento:document.getElementById('fechaNacimiento').value,
+    edad:age,
+    genero:document.getElementById('genero').value,
+    rol:document.getElementById('rol').value,
+    prefEquipo:document.getElementById('prefEquipo').value,
+    gustaEquipo:document.getElementById('gustaEquipo').value,
+    ...Object.fromEntries(allItems.map(i=>[i.id,i.rev?rev(answered[i.id]||0):(answered[i.id]||0)])),
+    especializacion:sc.spec,credibilidad:sc.cred,coordinacion:sc.coord,tmsTotal:sc.total
+  };
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true;btn.textContent='Enviando…';
+  fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+  .finally(()=>{
+    showResults(sc);
+    document.getElementById('successBanner').style.display='block';
+    btn.textContent='Enviado ✓';
+  });
+}
+
+function showResults(sc){
+  const card=document.getElementById('resultsCard');card.style.display='block';
+  document.getElementById('res-spec').textContent=sc.spec;
+  document.getElementById('res-cred').textContent=sc.cred;
+  document.getElementById('res-coord').textContent=sc.coord;
+  document.getElementById('res-total').textContent=sc.total;
+  setTimeout(()=>{
+    const ps=Math.round((sc.spec/35)*100),pc=Math.round((sc.cred/30)*100),
+          pco=Math.round((sc.coord/35)*100),pt=Math.round((sc.total/75)*100);
+    ['spec','cred','coord','total'].forEach((d,i)=>{
+      const v=[ps,pc,pco,pt][i];
+      document.getElementById('bar-'+d).style.width=v+'%';
+      document.getElementById('pct-'+d).textContent=v+'%';
+    });
+    const pct=pt;
+    let txt='';
+    if(pct>=80)txt=`<strong style="color:#8be88b">TMS Alto (${sc.total}/75 — ${pct}%)</strong>: Su equipo presenta un sistema de memoria transactiva bien desarrollado. Los miembros han desarrollado conocimiento especializado y complementario, confían mutuamente en la experticia del otro y coordinan sus tareas de forma fluida y eficiente. Esto favorece un alto aprovechamiento del conocimiento colectivo.`;
+    else if(pct>=50)txt=`<strong style="color:var(--gold)">TMS Moderado (${sc.total}/75 — ${pct}%)</strong>: Su equipo muestra un sistema de memoria transactiva en desarrollo. Algunas dimensiones pueden ser más sólidas que otras. Es recomendable fortalecer las áreas con puntuación más baja para mejorar la integración del conocimiento colectivo.`;
+    else txt=`<strong style="color:#f08080">TMS Bajo (${sc.total}/75 — ${pct}%)</strong>: El sistema de memoria transactiva del equipo presenta oportunidades de mejora. Se recomienda trabajar en la diferenciación de roles y conocimientos, el desarrollo de la confianza mutua y la mejora de los procesos de coordinación colectiva.`;
+    document.getElementById('interpText').innerHTML=txt;
+  },200);
+  card.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+buildStepper();
+</script>
+</body>
+</html>
