@@ -657,6 +657,18 @@ function showResults(sc){
   card.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
+function checkAccess() {
+  const input = document.getElementById('accessCode').value;
+  const errEl = document.getElementById('accessError');
+  if (input === 'team2021**') {
+    document.getElementById('accessGate').style.display = 'none';
+    document.getElementById('page-1').classList.add('active');
+  } else {
+    errEl.style.display = 'block';
+    document.getElementById('accessCode').value = '';
+    document.getElementById('accessCode').focus();
+  }
+}
 buildStepper();
 document.getElementById('page-1').classList.remove('active');
 document.getElementById('accessGate').style.display = 'flex';
